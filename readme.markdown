@@ -13,10 +13,10 @@ Mit Style License
   ***List***
 ===============
 
-    *Properties*
+    Properties
       count
 
-    *Methods*
+    Methods
       add()
       addRange()
       all()
@@ -41,7 +41,7 @@ Mit Style License
   ***String***
 ===============
 
-    **Methods**
+    Methods
       capitalize()
       contains()
       endsWith()
@@ -57,10 +57,10 @@ Mit Style License
   ***Stack***
 ===============
 
-    **Properties**
+    Properties
       count
 
-    **Methods**
+    Methods
       clear()
       count()
       isEmpty()
@@ -71,7 +71,7 @@ Mit Style License
   ***Sys***
 ===============
 
-    **Methods**
+    Methods
       Inherit()
       defaultValue()
       hasMethod()
@@ -89,5 +89,3 @@ Mit Style License
       isString()
       isTypeDate()
       isUndefined()
-      write()
-> Execution finished.

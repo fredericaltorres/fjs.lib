@@ -1,0 +1,68 @@
+Global setup:
+ Set up git
+  git config --global user.name "Frederic Torres"
+  git config --global user.email fredericaltorres@gmail.com
+        
+Next steps:
+  mkdir fjs.lib
+  cd fjs.lib
+  git init
+  touch README
+  git add README
+  git commit -m 'first commit'
+  git remote add origin git@github.com:fredericaltorres/fjs.lib.git
+  git push -u origin master
+      
+Existing Git Repo?
+  cd existing_git_repo
+  git remote add origin git@github.com:fredericaltorres/fjs.lib.git
+  git push -u origin master
+      
+Importing a Subversion Repo?
+  Click here
+      
+When you're done:
+
+
+The book:
+	http://progit.org/book/ch2-1.html
+
+
+git clone git://github.com/fredericaltorres/DynamicSugarNet
+git config --global user.name "Frederic Torres"
+git config --global user.email fredericaltorres@gmail.com
+git config --global core.editor
+
+git config --list
+git config user.name
+
+git help config # how to get full help
+
+git init
+
+git add .
+git add *.c
+git add README
+git rm aaa
+git mv aa aa
+git commit -m 'initial project version'
+git commit -a -m 'Simplify library remove non essential files'
+git status
+git push origin master
+
+git remote show origin
+
+git tag
+git tag -l 'v0.1.9.0'
+
+# Annotated tag
+git tag -a v0.1.9.0 -m 'v0.1.9.0'
+# Signed Annotated tag
+git tag -s v1.5 -m 'my signed 1.5 tag'
+git show v0.1.9.0
+
+
+git add .
+git commit -m 'Update markdown'
+git remote add origin git@github.com:fredericaltorres/RazorHelper.git
+git push -u origin master
