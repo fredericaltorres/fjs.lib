@@ -24,7 +24,6 @@ Mit Style License
       clear()
       concat()
       contains()
-      count()
       exists()
       filter()
       findAll()
@@ -62,7 +61,6 @@ Mit Style License
 
     Methods
       clear()
-      count()
       isEmpty()
       peek()
       toString()
