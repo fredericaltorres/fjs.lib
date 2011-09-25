@@ -13,10 +13,10 @@ Mit Style License
   ***List***
 ===============
 
-    **Properties**
+    *Properties*
       count
 
-    **Methods**
+    *Methods*
       add()
       addRange()
       all()
