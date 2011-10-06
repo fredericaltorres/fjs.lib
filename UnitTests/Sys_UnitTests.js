@@ -22,6 +22,29 @@ if(isNodeJs()){
 ///////////////////////////////////////////////////////////////////////////////
 function Sys_UnitTests() {
 
+   this.defaultValue = function (){
+        var o = { };
+        var n = null;
+        var u = undefined;
+        var a = "a";
+
+        this.Assert.AreEqual(1, sys.defaultValue(u,1));
+        this.Assert.AreEqual(null, sys.defaultValue(n,1));
+        this.Assert.AreEqual(o, sys.defaultValue(o,1));
+        this.Assert.AreEqual(a, sys.defaultValue(a,1));
+        this.Assert.AreEqual(o, sys.defaultValue(o,1));
+    }
+   this.testGetType = function (){
+
+        this.Assert.AreEqual("Array", sys.getType([1]));
+        this.Assert.AreEqual("String", sys.getType("A"));
+        this.Assert.AreEqual("Boolean", sys.getType(true));
+        this.Assert.AreEqual("Number", sys.getType(1));
+        this.Assert.AreEqual("Number", sys.getType(1.1));
+        this.Assert.AreEqual("Date", sys.getType(new Date()));
+        this.Assert.AreEqual("Function", sys.getType(function(){}));
+        this.Assert.AreEqual("Object", sys.getType({}));
+    }
    this.testIsString = function (){
 
         this.Assert.IsTrue(sys.isString(""));
@@ -64,13 +87,6 @@ function Sys_UnitTests() {
 
         this.Assert.IsTrue(sys.hasMethod(a,'m'));
         this.Assert.IsFalse(sys.hasMethod(a,'mmm'));
-    }
-    this.testIsNull = function (){
-
-        var o = { };
-
-        this.Assert.IsTrue(sys.isNull(null));
-        this.Assert.IsTrue(!sys.isNull(o));
     }
     this.testIsNull = function (){
 

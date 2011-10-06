@@ -9,6 +9,21 @@ sys = (function(){
     var
         _sys = {};
 
+    _sys.getType = function(v) {
+
+        var type;
+        if (v === null)
+            return "null";
+        if (typeof v === 'undefined')
+            return "undefined";
+        if (typeof v === 'undefined')
+            return "undefined";
+
+        type = Object.prototype.toString.call(v);
+        type = type.replace("[object ", "");
+        type = type.replace("]", "");
+        return type;
+    }
     _sys.isString = function(s) {
         ///	<summary>
         /// return true if variable s if of type string
