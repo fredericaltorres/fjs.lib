@@ -22,6 +22,10 @@ set ut_file=stack_unitTests.js
 "%node%" "%ut_file%"
 if %ERRORLEVEL% NEQ 0 set failed=%failed%,"%ut_file%"
 
+set ut_file=dictionary_unitTests.js
+"%node%" "%ut_file%"
+if %ERRORLEVEL% NEQ 0 set failed=%failed%,"%ut_file%"
+
 popd
 
 REM -------------------------------------
@@ -40,3 +44,4 @@ REM -------------------------------------
 :END
 echo done
 
+pause

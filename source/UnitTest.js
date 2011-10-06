@@ -7,6 +7,12 @@ Global NameSpace
     - NameSpace:UnitTests
     - Classes:UnitTests.UnitTestsBaseClass
 */
+
+function write(s){
+    if(console!==undefined)
+        console.log(s);
+}
+
 UnitTests = (function(){
 
     var UnitTests = {
@@ -87,7 +93,7 @@ UnitTests = (function(){
         },
         AreEqual: function(expected, actual, message, throwException){
 
-            message         = sys.defaultValue(message, "Assert.AreEqual expected:{0}, actual:{1}".format(expected, actual));
+            message         = sys.defaultValue(message, "Assert.AreEqual expected:{0}, actual:{1}".format(""+expected, ""+actual));
             throwException  = sys.defaultValue(throwException, true);
 
             if(Array.isArray(expected) && Array.isArray(actual)) {
@@ -134,7 +140,6 @@ UnitTests = (function(){
 
             if (typeof message == "undefined")
                 message = "Unit test failed";
-            print("[FAILED]{0}".format(message));
             throw message;
         }
     }
