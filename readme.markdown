@@ -1,4 +1,4 @@
-js.lib
+fjs.lib
 ======
 My attempt to a re-usable JavaScript standard library inspired by the .NET library.
 
