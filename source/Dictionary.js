@@ -3,7 +3,7 @@ Dictionary.js
 (c) 2011 TORRES Frederic
 Freely distributable under the MIT license.
 
-    - Work in a browser or in nodeJS
+    - Works in a browser or in nodeJS
 
 Class Dictionart a match for the C# .NET Dictionart<string,V>- Frederic Torres 2011
 */

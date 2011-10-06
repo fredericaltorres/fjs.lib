@@ -10,6 +10,24 @@ TORRES Frederic 2011
 
 Mit Style License
 
+  ***Dictionary***
+===============
+
+    Properties
+      count
+      keys
+      values
+
+    Methods
+      add(name, value)
+      remove(name)
+      containsKey(name)
+      containsValue(value)
+      get(name, defaultValue)
+      toString()
+      filter(lambda)
+      map(lambda)
+
   ***List***
 ===============
 

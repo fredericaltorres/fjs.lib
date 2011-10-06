@@ -3,7 +3,7 @@ List.js
 (c) 2011 TORRES Frederic
 Freely distributable under the MIT license.
 
-    - Work in a browser or in nodeJS
+    - Works in a browser or in nodeJS
 
 Class List a match for the C# .NET List<T>- Frederic Torres 2011
 based on

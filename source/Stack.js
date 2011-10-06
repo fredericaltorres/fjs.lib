@@ -3,7 +3,7 @@ Stack.js
 (c) 2011 TORRES Frederic
 Freely distributable under the MIT license.
 
-    - Work in a browser or in nodeJS
+    - Works in a browser or in nodeJS
 
 Class Stack a match for the C# .NET Stack<T>
 based on Andrea Giammarchi's Stack
