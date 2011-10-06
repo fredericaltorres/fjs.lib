@@ -89,6 +89,7 @@ Mit Style License
 ===============
 
     Methods
+      getType()
       Inherit()
       defaultValue()
       hasMethod()
