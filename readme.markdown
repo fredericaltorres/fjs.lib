@@ -94,7 +94,6 @@ Mit Style License
       defaultValue()
       hasMethod()
       hasValue()
-      ifDefined()
       ifNullOrUndefined()
       ifUndefined()
       isBrowser()
