@@ -2,9 +2,10 @@ fjs.lib
 ======
 My attempt to a re-usable JavaScript standard library inspired by the .NET library.
 
-- A class List inspired by the .NET List<T>
-- A class Stack inspired by the .NET Stack<T>
-- Extensions method for the class String
+    - A class List inspired by the .NET List<T>
+    - A class Dictionary inspired by the .NET Dictionary<K,V>
+    - A class Stack inspired by the .NET Stack<T>
+    - Extensions method for the class String
 
 TORRES Frederic 2011
 
