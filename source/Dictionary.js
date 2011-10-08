@@ -8,23 +8,39 @@ Freely distributable under the MIT license.
 Class Dictionart a match for the C# .NET Dictionart<string,V>- Frederic Torres 2011
 */
 Dictionary = (function(){
-    
+
     function print(s){
         if(console!==undefined)
             console.log(s);
     }
 
     function _dictionary(values) {
-
         var
             k;
 
         for(k in values)
             this[k] = values[k];
 
-        Object.defineProperty(this, "count" , { get: function(){ return this.length; } });
-        Object.defineProperty(this, "keys"  , { get: function(){ return Object.keys(this); } });
-        Object.defineProperty(this, "values", {
+        Object.defineProperty(this, "Count" , { 
+            get:function(){
+                return this.Keys.length;
+            }
+        });
+        Object.defineProperty(this, "Keys"  , {
+            get: function(){
+                var
+                    i,
+                    allKeys = Object.keys(this),
+                    nameValueOnlyKeys = [];
+
+                for(i=0; i<allKeys.length; i++)
+                    if(typeof this[allKeys[i]] !== 'function')
+                        nameValueOnlyKeys.push(allKeys[i]);
+                        
+                return nameValueOnlyKeys;
+            }
+        });
+        Object.defineProperty(this, "Values", {
 
             get: function(){
                 var
@@ -38,10 +54,17 @@ Dictionary = (function(){
         });
     }
 
-    function _array()                   {};
-    _array.prototype        =           {};
-    _dictionary.prototype   = new _array();
+    function _internalObject()                   {};
+    _internalObject.prototype   =                {};
+    _dictionary.prototype       = new _internalObject();
 
+    _dictionary.prototype.clear = function () {
+        var
+            keys = this.Keys;
+            i;
+        for(i=0; i<keys.length; i++)
+            this.remove(keys[i]);
+    }
     _dictionary.prototype.add = function (name, value) {
 
         this[name] = value;
@@ -52,7 +75,7 @@ Dictionary = (function(){
     }
     _dictionary.prototype.containsKey = function (name) {
         var
-            keys = this.keys,
+            keys = this.Keys,
             i;
 
         for(i=0; i<keys.length; i++)

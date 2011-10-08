@@ -67,18 +67,18 @@ function Dictionary_UnitTests() {
         var
             d = new Dictionary({ a:1, b:"2", c:true });
 
-        this.Assert.AreEqual(['a','b','c'], d.keys);
+        this.Assert.AreEqual(['a','b','c'], d.Keys);
     }
     this.testValues = function (){
         var
             d = new Dictionary({ a:1, b:"2", c:true });
-        this.Assert.AreEqual([1,"2", true], d.values);
+        this.Assert.AreEqual([1,"2", true], d.Values);
     }
     this.testRemove = function (){
         var
             d = new Dictionary({ a:1, b:"2", c:true });
         d.remove("b");
-        this.Assert.AreEqual([1, true], d.values);
+        this.Assert.AreEqual([1, true], d.Values);
     }
     this.testContainsKey = function (){
         var
@@ -132,6 +132,19 @@ function Dictionary_UnitTests() {
             d2 = new Dictionary({ aa:10, bb:20, cc:30, dd:40, ee:50, ff:60 });
 
         this.Assert.AreEqual(d2.toString(), d1.map(function(k,v){ return { key:k+k, value:v*10 } }).toString());
+    }
+    this.testClear = function (){
+        var
+            d = new Dictionary({ a:1, b:"2", c:true });
+
+        d["d"] = new Date();
+        d["e"] = null;
+        d["f"] = undefined;
+
+        // Function will be ignored from the keys of the dictionary
+        d.aDummyFunction = function(){ }
+
+        this.Assert.AreEqual(6, d.Count);
     }
 }
 Dictionary_UnitTests.prototype = new UnitTests.UnitTestsBaseClass();
