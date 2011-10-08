@@ -36,7 +36,7 @@ Dictionary = (function(){
                 for(i=0; i<allKeys.length; i++)
                     if(typeof this[allKeys[i]] !== 'function')
                         nameValueOnlyKeys.push(allKeys[i]);
-                        
+
                 return nameValueOnlyKeys;
             }
         });
@@ -60,7 +60,7 @@ Dictionary = (function(){
 
     _dictionary.prototype.clear = function () {
         var
-            keys = this.Keys;
+            keys = this.Keys,
             i;
         for(i=0; i<keys.length; i++)
             this.remove(keys[i]);

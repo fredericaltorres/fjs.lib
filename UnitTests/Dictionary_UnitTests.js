@@ -145,6 +145,8 @@ function Dictionary_UnitTests() {
         d.aDummyFunction = function(){ }
 
         this.Assert.AreEqual(6, d.Count);
+        d.clear();
+        this.Assert.AreEqual(0, d.Count);
     }
 }
 Dictionary_UnitTests.prototype = new UnitTests.UnitTestsBaseClass();
