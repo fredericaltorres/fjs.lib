@@ -6,6 +6,7 @@ My attempt to a re-usable JavaScript standard library inspired by the .NET libra
     - A class Dictionary inspired by the .NET Dictionary<K,V>
     - A class Stack inspired by the .NET Stack<T>
     - Extensions method for the class String
+    - Extensions method for the class Array
 
 TORRES Frederic 2011
 
@@ -107,3 +108,5 @@ Mit Style License
       isString()
       isTypeDate()
       isUndefined()
+
+
