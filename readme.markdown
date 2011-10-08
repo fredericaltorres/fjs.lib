@@ -15,13 +15,14 @@ Mit Style License
 ===============
 
     Properties
-      count
-      keys
-      values
+      Count
+      Keys
+      Values
 
     Methods
       add(name, value)
       remove(name)
+      clear()
       containsKey(name)
       containsValue(value)
       get(name, defaultValue)
@@ -33,7 +34,7 @@ Mit Style License
 ===============
 
     Properties
-      count
+      Count
 
     Methods
       add()

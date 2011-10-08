@@ -26,50 +26,50 @@ function List_UnitTests() {
     this.testConstructorWithNoArgument = function (){
 
         var l = new List();
-        this.Assert.AreEqual(0, l.count);
+        this.Assert.AreEqual(0, l.Count);
         this.Assert.AreEqual("", l.toString());
     }
     this.testConstructorWithMultipleArguments = function (){
 
         var l = new List(1, 2, 3);
-        this.Assert.AreEqual(3, l.count);
+        this.Assert.AreEqual(3, l.Count);
         this.Assert.AreEqual("1,2,3", l.toString());
     }
     this.testConstructorWithArgumentInArray = function (){
 
         var l = new List([1, 2, 3]);
-        this.Assert.AreEqual(3, l.count);
+        this.Assert.AreEqual(3, l.Count);
         this.Assert.AreEqual("1,2,3", l.toString());
     }
     this.testAdd = function (){
 
         var l = new List();
-        this.Assert.AreEqual(0, l.count);
+        this.Assert.AreEqual(0, l.Count);
         l.add(1);
         l.add(2);
         l.add(3);
         this.Assert.AreEqual("1,2,3", l.toString());
-        this.Assert.AreEqual(3, l.count);
+        this.Assert.AreEqual(3, l.Count);
     }
     this.testRemoveAt = function (){
 
         var l = new List(1, 2, 3);
         l.removeAt(1);
-        this.Assert.AreEqual(2, l.count);
+        this.Assert.AreEqual(2, l.Count);
         this.Assert.AreEqual("1,3", l.toString());
     }
     this.testRemove = function (){
 
         var l = new List(1, 2, 3);
         this.Assert.AreEqual(1,l.remove(2));
-        this.Assert.AreEqual(2, l.count);
+        this.Assert.AreEqual(2, l.Count);
         this.Assert.AreEqual("1,3", l.toString());
     }
     this.testRemoveMultipleElement = function (){
 
         var l = new List(1, 2, 3, 1, 1);
         this.Assert.AreEqual(3,l.remove(1));
-        this.Assert.AreEqual(2, l.count);
+        this.Assert.AreEqual(2, l.Count);
         this.Assert.AreEqual("2,3", l.toString());
     }
     this.testConcat = function (){
@@ -108,11 +108,11 @@ function List_UnitTests() {
 
         var l = new List(1, 2, 3);
         l.clear();
-        this.Assert.AreEqual(0, l.count);
+        this.Assert.AreEqual(0, l.Count);
         this.Assert.AreEqual("", l.toString());
         l.add(1);
         this.Assert.AreEqual("1", l.toString());
-        this.Assert.AreEqual(1, l.count);
+        this.Assert.AreEqual(1, l.Count);
         l.addRange(2, 3, 4);
         this.Assert.AreEqual("1,2,3,4", l.toString());
     }

@@ -47,7 +47,7 @@ List = (function(){
                 this.push.call(this, arguments[i]);
             }
         }
-        Object.defineProperty(this, "count", {
+        Object.defineProperty(this, "Count", {
 
             get: function(){ return this.length; },
         });
@@ -80,10 +80,10 @@ List = (function(){
         this.length = 0;
     }
    _list.prototype.removeAt = function (index) {
-        if(this.count==0)
+        if(this.Count==0)
             throw new Error("Cannot removeAt from empty List");
 
-        if(index>=0 && index < this.count)
+        if(index>=0 && index < this.Count)
             __removeAt(this, index);
         else
             throw new Error("invalid index "+index+" for List");
