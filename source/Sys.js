@@ -50,7 +50,7 @@ sys = (function(){
         /// Returns true if d is of type date
         ///	</summary>
         ///	<param name="d" type="Date"></param>
-        if(this.isNullOrUndefined(d)){
+        if(sys.isNullOrUndefined(d)){
             //console.log("isTypeDate called");
             return false;
         }
@@ -76,14 +76,14 @@ sys = (function(){
         /// Returns true if v is undefined
         ///	</summary>
         ///	<param name="v" type=""></param>
-        return (typeof v == "undefined");
+        return (typeof v === "undefined");
     }
     _sys.isNullOrUndefined = function(v) {
         ///	<summary>
         /// Returns true if v is null or undefined
         ///	</summary>
         ///	<param name="v" type=""></param>
-        return (v === null) || (typeof v == "undefined");
+        return (v === null) || (typeof v === "undefined");
     }
     _sys.ifUndefined = function(v, defaultVal) {
         ///	<summary>
@@ -99,7 +99,7 @@ sys = (function(){
         ///	</summary>
         ///	<param name="v" type=""></param>
         ///	<param name="defaultVal" type="">The default value</param>
-        var vv = isNullOrUndefined(v) ? defaultVal : v;
+        var vv = sys.isNullOrUndefined(v) ? defaultVal : v;
         return vv;
     }
     _sys.ifDefined = function(v, defaultVal) {
@@ -145,9 +145,9 @@ sys = (function(){
         var
             method = null;
     
-        if (!isNullOrUndefined(Super)) {
+        if (!sys.isNullOrUndefined(Super)) {
     
-            if (!isNullOrUndefined(Super.prototype)) {
+            if (!sys.isNullOrUndefined(Super.prototype)) {
     
                 for (var method in Super.prototype)
                     Class.prototype[method] = Super.prototype[method];
