@@ -18,13 +18,31 @@ if (typeof Date.prototype.diff !== 'function') {
 
         var d = this.getTime() - date2.getTime();
         var r = d/1000;
-        
-        
+
+
         switch(unit){
             case "s" : break;
             case "m" : r =r/60; break;
             case "h" : r =r/60/60; break;            
         }
         return r;
+    }
+}
+///////////////////////////////////////////////////////////////////////////////
+///
+if (typeof Date.prototype.addMinutes !== 'function') {
+
+    Date.prototype.addMinutes = function (minutes) {
+
+        this.setMinutes( this.getMinutes() + minutes);
+    }
+}
+///////////////////////////////////////////////////////////////////////////////
+///
+if (typeof Date.prototype.addSeconds !== 'function') {
+
+    Date.prototype.addSeconds = function (seconds) {
+
+        this.setSeconds( this.getSeconds() + seconds);
     }
 }

@@ -48,6 +48,22 @@ function DateExtension_UnitTests() {
         this.Assert.AreEqual(90  , d2.diff(d1,"m"));
         this.Assert.AreEqual(1.5 , d2.diff(d1,"h"));
     }
+    this.testAddMinutes = function (){
+        var
+            d1 = new Date(2011, 1-1, 1, 0, 0, 0, 0),
+            d2 = new Date(2011, 1-1, 1, 0, 0, 0, 0);
+        d1.addMinutes(10);
+        this.Assert.AreEqual(10, d1.diff(d2,"m"));
+        this.Assert.AreEqual(10, d1.getMinutes());
+    }
+    this.testAddSeconds = function (){
+        var
+            d1 = new Date(2011, 1-1, 1, 0, 0, 0, 0),
+            d2 = new Date(2011, 1-1, 1, 0, 0, 0, 0);
+        d1.addSeconds(10);
+        this.Assert.AreEqual(10, d1.getSeconds());
+        this.Assert.AreEqual(10, d1.diff(d2,"s"));
+    }
 }
 DateExtension_UnitTests.prototype = new UnitTests.UnitTestsBaseClass();
 
