@@ -64,6 +64,24 @@ function DateExtension_UnitTests() {
         this.Assert.AreEqual(10, d1.getSeconds());
         this.Assert.AreEqual(10, d1.diff(d2,"s"));
     }
+/*     this.testAddDays = function (){
+        var
+            d1 = new Date(2011, 1-1, 0, 0, 0, 0, 0),
+            d2 = new Date(2011, 1-1, 2, 0, 0, 0, 0);
+        d1.addDays(2);
+        this.Assert.AreEqual(2, d1.getDate());
+        print(d1);
+        print(d2);
+        this.Assert.AreEqual(2, d1.diff(d2,"d"));
+    } */
+    this.testFormatIso = function (){
+        var
+            d1 = new Date(2011, 10-1, 10, 20, 13, 5, 123);
+
+        print(d1);
+        print(d1.formatIso());
+    }
+
 }
 DateExtension_UnitTests.prototype = new UnitTests.UnitTestsBaseClass();
 
