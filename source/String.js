@@ -120,7 +120,8 @@ String.prototype.format = function () {
 
             var v = arguments[i];
             if (Array.isArray(v)) // format the array to a string
-                v = v.format();
+                if(v.format)
+                    v = v.format();
             stringValue = stringValue.replace(new RegExp('\\{' + (i) + '\\}', 'gm'), v);
         }
     }
