@@ -9,6 +9,17 @@ Freely distributable under the MIT license.
 ///////////////////////////////////////////////////////////////////////////////
 /// String Extensions
 ///////////////////////////////////////////////////////////////////////////////
+String.prototype.remove = function( idx, count ) {
+
+    if(typeof(count)==='undefined'){
+        count = this.length;
+    }
+    return this.slice(0,idx) + this.slice(idx+count);
+}
+String.prototype.insert = function( idx, s ) {
+
+    return (this.slice(0,idx) + s + this.slice(idx));
+}
 String.prototype.capitalize = function () {
     ///	<summary>
     /// Capitalize the string, 
