@@ -6,10 +6,7 @@ Freely distributable under the MIT license.
 Inspired from the .NET StringBuilder
 
 */
-function print(s){
-    if(console!==undefined)
-        console.log(s);
-}
+
 StringBuilder = function () {
 
     this.__init__ = function(){
