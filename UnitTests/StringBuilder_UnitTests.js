@@ -71,10 +71,28 @@ function StringBuilder_UnitTests() {
     this.testRemove = function (){
 
         var sb = new StringBuilder();
-        sb.clear();
-        sb.append("1~~~234");
-        sb.remove(2, 1);
-        this.Assert.AreEqual("1~~234", sb.toString());
+        this.Assert.AreEqual("1~~234", sb.clear().append("1~~~234").remove(1, 1).toString());
+        this.Assert.AreEqual("1~234",  sb.clear().append("1~~~234").remove(1, 2).toString());
+        this.Assert.AreEqual("1234",   sb.clear().append("1~~~234").remove(1, 3).toString());
+        this.Assert.AreEqual("234",    sb.clear().append("1234").remove(0, 1).toString());
+        this.Assert.AreEqual("123",    sb.clear().append("1234").remove(3, 1).toString());
+        this.Assert.AreEqual("",       sb.clear().append("1234").remove(0, 4).toString());
+        this.Assert.AreEqual("",       sb.clear().append("1234").remove(0,14).toString());
+    }
+    this.testRemoveInvalidParameterIndex = function (){
+
+        var sb = new StringBuilder();
+        this.Assert.AreEqual("",       sb.clear().append("1234").remove(10,1).toString());
+    }
+    this.testRemoveInvalidParameterIndex.ExpectException = true;
+
+    this.testReplace = function (){
+
+        var sb = new StringBuilder();
+        this.Assert.AreEqual("1~~4", sb.clear().append("1234").replace("23","~~").toString());
+        this.Assert.AreEqual("1234", sb.clear().append("1234").replace("AA","~~").toString());
+        this.Assert.AreEqual("1~~~5", sb.clear().append("12345").replace("234","~~~").toString());
+        this.Assert.AreEqual("12", sb.clear().append("[A][a]").replace("[A]","1").replace("[a]","2").toString());
     }
 }
 StringBuilder_UnitTests.prototype = new UnitTests.UnitTestsBaseClass();

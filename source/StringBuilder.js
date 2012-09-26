@@ -7,6 +7,10 @@ Inspired from the .NET StringBuilder
 
 */
 
+function print(s){
+    if(console!==undefined)
+        console.log(s);
+}
 StringBuilder = function () {
 
     this.__init__ = function(){
@@ -41,13 +45,23 @@ StringBuilder = function () {
     this.remove = function(index, count){
 
         var r = this.toString();
+        if(index >= r.length){
+            throw "Invalid Parameter Index:{0}".format(index);
+        }
         this.clear();
         this.append(r.remove(index, count));
         return this;
     }
-    this.replace = function(s){
+    this.replace = function(searchString, replaceString){
 
-        return this;
+      var r = this.toString();
+      this.clear();
+
+      while(r.contains(searchString)){
+          r = r.replace(searchString, replaceString);
+      }
+      this.append(r);
+      return this;
     }
     this.clear = function(){
 
