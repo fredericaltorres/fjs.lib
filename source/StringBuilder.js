@@ -45,9 +45,9 @@ StringBuilder = function () {
     this.remove = function(index, count){
 
         var r = this.toString();
-        if(index >= r.length){
+        if(index >= r.length)
             throw "Invalid Parameter Index:{0}".format(index);
-        }
+
         this.clear();
         this.append(r.remove(index, count));
         return this;
@@ -57,7 +57,7 @@ StringBuilder = function () {
       var r = this.toString();
       this.clear();
 
-      while(r.contains(searchString)){
+      while(r.contains(searchString)) {
           r = r.replace(searchString, replaceString);
       }
       this.append(r);
