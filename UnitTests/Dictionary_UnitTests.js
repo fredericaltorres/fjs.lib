@@ -67,18 +67,18 @@ function Dictionary_UnitTests() {
         var
             d = new Dictionary({ a:1, b:"2", c:true });
 
-        this.Assert.AreEqual(['a','b','c'], d.Keys);
+        this.Assert.AreEqual(['a','b','c'], d.getKeys());
     }
     this.testValues = function (){
         var
             d = new Dictionary({ a:1, b:"2", c:true });
-        this.Assert.AreEqual([1,"2", true], d.Values);
+        this.Assert.AreEqual([1,"2", true], d.getValues());
     }
     this.testRemove = function (){
         var
             d = new Dictionary({ a:1, b:"2", c:true });
         d.remove("b");
-        this.Assert.AreEqual([1, true], d.Values);
+        this.Assert.AreEqual([1, true], d.getValues());
     }
     this.testContainsKey = function (){
         var

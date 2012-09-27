@@ -21,46 +21,59 @@ Dictionary = (function(){
         for(k in values)
             this[k] = values[k];
 
-        Object.defineProperty(this, "Count" , { 
-            get:function(){
-                return this.Keys.length;
-            }
-        });
-        Object.defineProperty(this, "Keys"  , {
-            get: function(){
-                var
-                    i,
-                    allKeys = Object.keys(this),
-                    nameValueOnlyKeys = [];
+        if(typeof(Object.defineProperty)==='function') {
 
-                for(i=0; i<allKeys.length; i++)
-                    if(typeof this[allKeys[i]] !== 'function')
-                        nameValueOnlyKeys.push(allKeys[i]);
+            Object.defineProperty(this, "Count" , { 
+                get:function(){
+                    return this.Keys.length;
+                }
+            });
+            Object.defineProperty(this, "Keys"  , {
+                get: function(){
+                     return this.getKeys();
+                }
+            });
+            Object.defineProperty(this, "Values", {
 
-                return nameValueOnlyKeys;
-            }
-        });
-        Object.defineProperty(this, "Values", {
-
-            get: function(){
-                var
-                    values = [],
-                    k;
-                for(k in this)
-                    if(typeof this[k] !== 'function')
-                        values.push(this[k]);
-                return values;
-            }
-        });
+                get: function(){
+                     return this.getValues;
+                }
+            });
+        }
     }
 
     function _internalObject()                   {};
     _internalObject.prototype   =                {};
     _dictionary.prototype       = new _internalObject();
+    
+    
+    _dictionary.prototype.getCount = function () {
+         return this.getKeys().length;
+    }
+    _dictionary.prototype.getKeys = function () {
+        var
+              i,
+              allKeys = Object.keys(this),
+              nameValueOnlyKeys = [];
 
+          for(i=0; i<allKeys.length; i++)
+              if(typeof this[allKeys[i]] !== 'function')
+                  nameValueOnlyKeys.push(allKeys[i]);
+
+          return nameValueOnlyKeys;
+    }
+    _dictionary.prototype.getValues = function () {
+        var
+            values = [],
+            k;
+        for(k in this)
+            if(typeof this[k] !== 'function')
+                values.push(this[k]);
+        return values;
+    }
     _dictionary.prototype.clear = function () {
         var
-            keys = this.Keys,
+            keys = this.getKeys(),
             i;
         for(i=0; i<keys.length; i++)
             this.remove(keys[i]);
@@ -75,7 +88,7 @@ Dictionary = (function(){
     }
     _dictionary.prototype.containsKey = function (name) {
         var
-            keys = this.Keys,
+            keys = this.getKeys(),
             i;
 
         for(i=0; i<keys.length; i++)
