@@ -11,16 +11,20 @@ based on Andrea Giammarchi's Stack
 */
 Stack = (function(){
 
-    function Stack(length){
+    function Stack(length) {
+
         if(arguments.length === 1 && typeof length === "number")
             this.length = -1 < length && length === length << 1 >> 1 ? length : this.push(length);
         else if(arguments.length)
             this.push.apply(this, arguments);
             
-       Object.defineProperty(this, "count", {
+       if(typeof(Object.defineProperty)==='function') {
 
-            get: function(){ return this.length; },
-        });
+          Object.defineProperty(this, "count", {
+          
+                get: function(){ return this.getCount(); },
+          });
+       }
     };
 
     function Array(){};
@@ -30,7 +34,10 @@ Stack = (function(){
     Stack.prototype.toString = function(){
         return  this.slice(0).toString();
     };
+     Stack.prototype.getCount = function (v) {
 
+       return this.length;
+    }
     Stack.prototype.clear = function (v) {
 
         this.length = 0;
