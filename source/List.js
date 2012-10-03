@@ -60,6 +60,15 @@ List = (function(){
     _list.prototype            = new _array();
     _list.prototype.length     = 0;
 
+
+    _list.prototype.first = function () {
+
+        return this[0];
+    }
+    _list.prototype.last = function () {
+
+        return this[this.length-1];
+    }
     _list.prototype.getCount   = function () {
 
         return this.length;

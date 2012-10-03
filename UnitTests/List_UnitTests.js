@@ -175,6 +175,20 @@ function List_UnitTests() {
         l.remove(3);
         this.Assert.IsTrue(l.isEmpty());
     }
+    this.testFirst = function (){
+
+        var l = new List(1, 2, 3, 4, 5);
+        this.Assert.AreEqual( 1, l.first() );
+        this.Assert.AreEqual( 1, l.shift() );
+        this.Assert.AreEqual( 2, l.first() );
+    }
+    this.testLast = function (){
+
+        var l = new List(1, 2, 3, 4, 5);
+        this.Assert.AreEqual( 5, l.last() );
+        l.removeAt(4);
+        this.Assert.AreEqual( 4, l.last() );
+    }
 }
 List_UnitTests.prototype = new UnitTests.UnitTestsBaseClass();
 
@@ -188,4 +202,5 @@ if(isNodeJs()){
 else{
     print("Unit tests can only run in NodeJS mode");
 }
+
 
