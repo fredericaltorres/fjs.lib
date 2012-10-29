@@ -69,6 +69,13 @@ function String_UnitTests() {
 
         this.Assert.AreEqual("aBCDa","ABCDa".replace(/A/,"a"));
     }
+    this.testStringReplaceAll = function() {
+
+        this.Assert.AreEqual("-ABCD-", "aABCDa".replaceAll("a", "-"));
+        this.Assert.AreEqual("ABCD",   "aABCDa".replaceAll("a", ""));
+        this.Assert.AreEqual("",       "aaaaaaaaaaaaa".replaceAll("a", ""));
+        this.Assert.AreEqual("b",      "aaaaaabaaaaaaa".replaceAll("a", ""));
+    }
     this.testRightPad = function(){
 
         this.Assert.AreEqual("100", "1".rightPad("0",3));

@@ -76,6 +76,18 @@ String.prototype.contains = function (str) {
         pos = this.indexOf(str);
     return pos !== -1;
 }
+String.prototype.replaceAll = function (searched, replaced) {
+    ///	<summary>
+    /// Replace all instance of searched with replaced
+    ///	</summary>
+    ///	<param name="searched" type="string">The string to search</param>
+    ///	<param name="replaced" type="string">The string to replaced</param>
+    var s = this;
+    while(s.contains(searched)) {
+         s = s.replace(searched, replaced);
+    }
+    return s;
+}
 String.prototype.startsWith = function (str) { 
     ///	<summary>
     /// Return true if the string start with a specific string
