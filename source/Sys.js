@@ -9,6 +9,53 @@ sys = (function(){
     var
         _sys = {};
 
+        
+    _sys.extend = function(destination, source) {
+
+        for(var property in source)
+            destination[property] = source[property];
+        return destination;
+    }
+    _sys.extendMethods = function(destination, source) {
+
+        for(var property in source)
+            if(this.isFunction(source[property]))
+                destination[property] = source[property];
+        return destination;
+    }
+    _sys.extendProperties = function(destination, source) {
+
+        for(var property in source)
+            if(!this.isFunction(source[property]))
+                destination[property] = source[property];
+        return destination;
+    }
+    _sys.removeMethods = function(o) {
+
+        var keys = Object.keys(o);
+		for(i=0; i<keys.length; i++) {
+			if(this.isFunction(o[keys[i]])) {
+				delete o[keys[i]]
+			}
+		}
+    }
+    _sys.isFunction = function(v) { return this.getType(v) === "Function";  }
+    _sys.isString   = function(v) { return this.getType(v) === "String";    }
+    _sys.isBoolean  = function(v) { return this.getType(v) === "Boolean";   }
+    _sys.isNumber   = function(v) { return this.getType(v) === "Number";    }
+    _sys.isDate     = function(v) { return this.getType(v) === "Date";      }
+    _sys.isArray    = function(v) { return this.getType(v) === "Array";     }
+    _sys.isObject   = function(v) { return this.getType(v) === "Object";    }
+
+    _sys.isInteger  = function(x) {
+                                  	
+        if(this.isNumber(x)) {
+            var y = parseInt(x);
+            if (isNaN(y)) return false;
+            return x===y && x.toString()==y.toString();
+        }
+    }
+
     _sys.getType = function(v) {
 
         var type;
@@ -23,20 +70,6 @@ sys = (function(){
         type = type.replace("[object ", "");
         type = type.replace("]", "");
         return type;
-    }
-    _sys.isString = function(s) {
-        ///	<summary>
-        /// return true if variable s if of type string
-        ///	</summary>
-        ///	<param name="s" type="string">A variable</param>
-        return typeof (s) === "string";
-    }
-    _sys.isFunction = function(m) {
-        ///	<summary>
-        /// return true if m is of type method/function
-        ///	</summary>
-        ///	<param name="m" type="Function">A variable</param>
-        return typeof(m) === 'function';
     }
     _sys.isMethod = function(m) {
         ///	<summary>
