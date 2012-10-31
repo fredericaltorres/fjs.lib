@@ -32,12 +32,20 @@ sys = (function(){
     }
     _sys.removeMethods = function(o) {
 
+        var method = sys.getMethods(o);
+		for(i=0; i<method.length; i++) {
+            delete o[method[i]]
+		}
+    }
+     _sys.getMethods = function(o) {
+        var l = [];
         var keys = Object.keys(o);
 		for(i=0; i<keys.length; i++) {
 			if(this.isFunction(o[keys[i]])) {
-				delete o[keys[i]]
+				l.push(keys[i]);
 			}
 		}
+		return l;
     }
     _sys.isFunction = function(v) { return this.getType(v) === "Function";  }
     _sys.isString   = function(v) { return this.getType(v) === "String";    }
@@ -48,7 +56,7 @@ sys = (function(){
     _sys.isObject   = function(v) { return this.getType(v) === "Object";    }
 
     _sys.isInteger  = function(x) {
-                                  	
+
         if(this.isNumber(x)) {
             var y = parseInt(x);
             if (isNaN(y)) return false;
