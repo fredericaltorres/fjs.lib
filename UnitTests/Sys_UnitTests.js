@@ -22,6 +22,14 @@ if(isNodeJs()){
 ///////////////////////////////////////////////////////////////////////////////
 function Sys_UnitTests() {
  
+ 
+     this.testGetMethods = function (){
+
+        var o1  = { n2:2, b2:true, s2:"s2", f2:function() { return "a"; } };
+        var methods = sys.getMethods(o1);
+        this.Assert.AreEqual(1, methods.length);
+        this.Assert.AreEqual("a", o1[methods[0]]());
+    }
     this.testRemoveMethods = function (){
 
         var o1  = { n2:2, b2:true, s2:"s2", f2:function() { return "a"; }, f3 : function() { return "b"; } };
