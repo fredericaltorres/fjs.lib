@@ -30,6 +30,15 @@ function Sys_UnitTests() {
         this.Assert.AreEqual(1, methods.length);
         this.Assert.AreEqual("a", o1[methods[0]]());
     }
+    
+    this.testGetObjects = function (){
+
+        var o1  = { n2:2, b2:true, s2:"s2", f2:function() { return "a"; }, obj:{ Name:"a" } };
+        var objs = sys.getObjects(o1);
+        this.Assert.AreEqual(1, objs.length);
+        this.Assert.AreEqual("a", o1[objs[0]].Name);
+    }
+
     this.testRemoveMethods = function (){
 
         var o1  = { n2:2, b2:true, s2:"s2", f2:function() { return "a"; }, f3 : function() { return "b"; } };

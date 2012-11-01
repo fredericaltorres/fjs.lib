@@ -43,7 +43,16 @@ sys = (function(){
             if(this.isFunction(o[keys[i]]))
                 l.push(keys[i]);
         return l;
+    }    
+    _sys.getObjects = function(o) {
+        var l = [];
+        var keys = Object.keys(o);
+        for(i=0; i<keys.length; i++)
+            if(this.isObject(o[keys[i]]))
+                l.push(keys[i]);
+        return l;
     }
+
     _sys.isFunction = function(v) { return this.getType(v) === "Function";  }
     _sys.isString   = function(v) { return this.getType(v) === "String";    }
     _sys.isBoolean  = function(v) { return this.getType(v) === "Boolean";   }
