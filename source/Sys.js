@@ -9,7 +9,21 @@ sys = (function(){
     var
         _sys = {};
 
-        
+   _sys.dumpObject = function(o) {
+
+        var l = [];
+        l.push("{");
+        for(var k in o) {
+            if(this.isFunction(o[k])) {
+                l.push("    Function "+k);
+            }
+            else {
+                l.push("    "+sys.getType(o[k]) + " " + k + " " + o[k]);
+            }
+        }
+        l.push("}");
+        return l.join("\n");
+    }
     _sys.extend = function(destination, source) {
 
         for(var property in source)

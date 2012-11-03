@@ -22,15 +22,22 @@ if(isNodeJs()){
 ///////////////////////////////////////////////////////////////////////////////
 function Sys_UnitTests() {
  
- 
-     this.testGetMethods = function (){
+    this.testDumpObject= function (){
+
+        var o1  = { n2:2, b2:true, s2:"s2", f2:function() { return "a"; } };
+        var so1 = sys.dumpObject(o1);
+        //console.log(so1);
+        this.Assert.AreEqual(72, so1.length);
+    }
+
+    this.testGetMethods = function (){
 
         var o1  = { n2:2, b2:true, s2:"s2", f2:function() { return "a"; } };
         var methods = sys.getMethods(o1);
         this.Assert.AreEqual(1, methods.length);
         this.Assert.AreEqual("a", o1[methods[0]]());
     }
-    
+
     this.testGetObjects = function (){
 
         var o1  = { n2:2, b2:true, s2:"s2", f2:function() { return "a"; }, obj:{ Name:"a" } };
