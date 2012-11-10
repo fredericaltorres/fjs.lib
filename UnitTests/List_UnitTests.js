@@ -122,6 +122,26 @@ function List_UnitTests() {
         this.Assert.IsTrue(l.contains(2));
         this.Assert.IsFalse(l.contains(12));
     }
+    this.testContainsMutiElement = function (){
+
+        var l = new List(1, 2, 3, 4, 5, 6);
+        this.Assert.IsTrue(l.contains([1.1, 1, 1,2]));
+        this.Assert.IsFalse(l.contains([8, 9, 0]));
+        
+        var l = new List("a", "b", "c", "d");
+        this.Assert.IsTrue(l.contains(["aa","aaa","a"]));
+        this.Assert.AreEqual("a", l.contains(["aa","aaa","a"]));
+        this.Assert.AreEqual("d", l.contains(["aa","d","aaa","a"]))
+        this.Assert.IsTrue(l.contains([undefined, null, 1, /aa/, new Date(), "aaa","a"]));
+        this.Assert.IsFalse(l.contains([undefined, null, 1, /aa/, new Date(), "aaa"]));
+        
+        this.Assert.IsTrue(l.contains(new List("aa","aaa","a")));
+
+        var l = new List({a:1}, {a:2}, {a:3});
+        this.Assert.IsFalse(l.contains({a:1}));
+        this.Assert.IsFalse(l.contains({a:1}, function(e){ return e.a === 1; }));
+
+    }
     this.testExists = function (){
 
         var l = new List(1, 2, 3);

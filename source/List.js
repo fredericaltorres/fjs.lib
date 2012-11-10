@@ -120,7 +120,17 @@ List = (function(){
     }
     _list.prototype.contains = function (val) {
 
-        return this.indexOf(val) !== -1;
+        if(Array.isArray(val)) {
+            for(var i=0; i<val.length; i++) {
+                if(this.contains(val[i])) {
+                    return val[i];
+                }
+            }
+            return undefined;
+        }
+        else {
+            return this.indexOf(val) !== -1;
+        }
     }
    _list.prototype.concat = function (l) {
         var
