@@ -216,6 +216,24 @@ function Sys_UnitTests() {
         this.Assert.IsTrue(!sys.isNullOrUndefined(o));
         this.Assert.IsTrue(!sys.isNullOrUndefined(1));
     }
+    this.testIsEmpty = function (){
+
+        var o = { };
+        var n = null;
+        var u = undefined;
+
+        this.Assert.IsTrue(sys.isEmpty(undefined));
+        this.Assert.IsTrue(sys.isEmpty(null));
+        this.Assert.IsTrue(sys.isEmpty(""));
+        this.Assert.IsTrue(sys.isEmpty(n));
+        this.Assert.IsTrue(sys.isEmpty(u));
+        
+        this.Assert.IsFalse(sys.isEmpty(o));
+        this.Assert.IsFalse(sys.isEmpty(1));
+        this.Assert.IsFalse(sys.isEmpty(" "));
+        this.Assert.IsFalse(sys.isEmpty(true));
+        this.Assert.IsFalse(sys.isEmpty(12.34));
+    }
     this.testIfUndefined = function (){
 
         var o = { a:1 };

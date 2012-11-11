@@ -146,6 +146,13 @@ sys = (function(){
         ///	<param name="v" type=""></param>
         return (v === null) || (typeof v === "undefined");
     }
+    _sys.isEmpty = function(v) {
+        ///	<summary>
+        /// Returns true if v is null or undefined
+        ///	</summary>
+        ///	<param name="v" type=""></param>
+        return (v === null) || (typeof v === "undefined") || (v === "");
+    }
     _sys.ifUndefined = function(v, defaultVal) {
         ///	<summary>
         /// Returns v if v is defined. if v is undefined returns defaultVal
