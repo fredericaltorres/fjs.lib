@@ -6,6 +6,35 @@ Freely distributable under the MIT license.
     - Works in a browser or in nodeJS
     - All the methods are extension method of the class string
 */
+
+
+String.prototype.decapitalize = function(  ) {
+    ///	<summary>
+    /// Convert a camelCase PascalCase or underscore programming id into caption or phrase
+    /// Sample 
+    ///     "ThisIsABigID".decapitalize() => "This Is A Big ID"
+    ///     "StateInTheUSA".decapitalize() => "State In The USA"
+    ///     "state_in_the_USA".decapitalize() => "State In The USA"
+    ///	</summary>
+    var text = this;
+    var finalResult = text.
+                        replace(/([A-Z]+)/g, " $1").        // Insert a space before any upper case -> replace(/([A-Z]+)/g, " $1") => "In The USAAnd Else"
+                        replace(/([A-Z][a-z])/g, " $1").    // Convert  "In The USAAnd Else" =>  "In The USA And Else"
+                        replace(/_/g, " ");                 // Support Id separated with '_'. A la Ruby
+
+    while(finalResult.indexOf("  ")!==-1) 
+        finalResult = finalResult.replace(/  /g, " ");
+
+    finalResult = finalResult.trim(); // Some side effect of above code add space at the beginning
+
+    // Support this is an ID => This Is An ID - Ruby id
+    finalResult = finalResult.replace(/(\S)(\S*)/g, function($0,$1,$2){
+        return $1.toUpperCase()+$2;
+    });
+    return finalResult;
+}
+
+
 ///////////////////////////////////////////////////////////////////////////////
 /// String Extensions
 ///////////////////////////////////////////////////////////////////////////////

@@ -22,10 +22,28 @@ if(isNodeJs()){
 ///////////////////////////////////////////////////////////////////////////////
 function String_UnitTests() {
 
-
     var FIRSTNAME = "Fred";
     var LASTNAME  = "TORRES";
 
+    this.testDecapitalize = function (){
+
+        this.Assert.AreEqual("Hello There Mister",                      "helloThereMister".decapitalize());
+        this.Assert.AreEqual("Hello Theremister",                       "helloTheremister".decapitalize());
+        this.Assert.AreEqual("This Is An ID",                           "ThisIsAnID".decapitalize());
+        this.Assert.AreEqual("This Is An ID Really Good ID In The USA", "ThisIsAnIDReallyGoodIDInTheUSA".decapitalize());
+        this.Assert.AreEqual("This Is An ID",                           "__ThisIsAn_ID".decapitalize());
+        this.Assert.AreEqual("This Is An ID",                           "ThisIsAn_ID".decapitalize());
+        this.Assert.AreEqual("This Is An ID",                           "ThisIsAn_____ID".decapitalize());
+
+        this.Assert.AreEqual("This Is An ID",                           "this_Is_An_ID".decapitalize());
+        this.Assert.AreEqual("This Is An ID",                           "this_is_an_ID".decapitalize());
+        this.Assert.AreEqual("This Is A Really Good ID In The USA",     "This_Is_A_Really_Good_ID_In_The_USA".decapitalize());
+        this.Assert.AreEqual("This Is A Really Good ID In The USA",     "this_is_a_really_good_ID_in_the_USA".decapitalize());
+        this.Assert.AreEqual("This Is A Really Good Id In The USA",     "this_is_a_really_good_id_in_the_USA".decapitalize());
+        this.Assert.AreEqual("This Is A Really Good Id In The Usa",     "this_is_a_really_good_id_in_the_usa".decapitalize());
+        this.Assert.AreEqual("THIS IS AN REALLY GOOD ID IN THE USA",    "THIS_IS_AN_REALLY_GOOD_ID_IN_THE_USA".decapitalize());
+        this.Assert.AreEqual("This Is A Really Good ID In The USA",     "This Is A Really Good ID In The USA".decapitalize());
+    }
     this.testStringFormatStatic = function (){
 
         this.Assert.AreEqual("[1]", String.format("[{0}]", 1));
