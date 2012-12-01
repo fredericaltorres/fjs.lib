@@ -8,7 +8,11 @@ Freely distributable under the MIT license.
 sys = (function(){
     var
         _sys = {};
-
+        
+   _sys.isNumeric = function (n) {
+     
+        return !isNaN(parseFloat(n)) && isFinite(n);
+    }
    _sys.dumpObject = function(o) {
 
         var l = [];

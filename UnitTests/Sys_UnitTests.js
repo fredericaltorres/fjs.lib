@@ -21,6 +21,22 @@ if(isNodeJs()){
 /// Sys Unit Tests
 ///////////////////////////////////////////////////////////////////////////////
 function Sys_UnitTests() {
+
+    this.testIsNumeric = function (){
+
+        this.Assert.IsTrue(sys.isNumeric(1));
+        this.Assert.IsTrue(sys.isNumeric(1.1));
+        this.Assert.IsTrue(sys.isNumeric("1"));
+        this.Assert.IsTrue(sys.isNumeric("1.1"));
+        
+        this.Assert.IsFalse(sys.isNumeric(true));
+        this.Assert.IsFalse(sys.isNumeric(false));
+        this.Assert.IsFalse(sys.isNumeric(null));
+        this.Assert.IsFalse(sys.isNumeric(undefined));
+        this.Assert.IsFalse(sys.isNumeric("aaa"));
+        this.Assert.IsFalse(sys.isNumeric(""));
+        this.Assert.IsFalse(sys.isNumeric());
+    }
  
     this.testDumpObject= function (){
 
