@@ -9,8 +9,27 @@ sys = (function(){
     var
         _sys = {};
         
+    _sys.getRidOfStarComment = function(s) {
+
+        var s1, s2, p2, p1;
+        
+        while(true) {
+            p1 = s.indexOf("/*")
+            if(p1 >= 0) {
+                p2 = s.indexOf("*/", p1);
+                if(p2 >= 0) {
+                    s1 = s.substring(0, p1);
+                    s2 = s.substring(p2+2);
+                    s = s1 + s2;
+                }
+            }
+            else break;
+          }
+        return s;
+    }
+
    _sys.isNumeric = function (n) {
-     
+
         return !isNaN(parseFloat(n)) && isFinite(n);
     }
    _sys.dumpObject = function(o) {

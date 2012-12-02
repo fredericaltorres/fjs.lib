@@ -22,13 +22,45 @@ if(isNodeJs()){
 ///////////////////////////////////////////////////////////////////////////////
 function Sys_UnitTests() {
 
+    this.testGetRidOfStarComment = function () {
+
+        var I, E;
+        I = "a/* */b";
+        E = "ab";
+        this.Assert.AreEqual(E, sys.getRidOfStarComment(I));
+        
+        I = "";
+        E = "";
+        this.Assert.AreEqual(E, sys.getRidOfStarComment(I));
+        
+        I = "aaa\n/* */\nbbb";
+        E = "aaa\n\nbbb";
+        this.Assert.AreEqual(E, sys.getRidOfStarComment(I));
+        
+        I = "aaa\n/* \n */\nbbb";
+        E = "aaa\n\nbbb";
+        this.Assert.AreEqual(E, sys.getRidOfStarComment(I));
+
+        I = "a/* */b/* */";
+        E = "ab";
+        this.Assert.AreEqual(E, sys.getRidOfStarComment(I));
+        
+        I = "aaa\n/* \n */\nbbb/* zuzu */\nccc";
+        E = "aaa\n\nbbb\nccc";
+        this.Assert.AreEqual(E, sys.getRidOfStarComment(I));
+        
+         I = "aaa\n/* \n */\nbbb/* zuzu */\nccc/* panpan */\nddd";
+        E = "aaa\n\nbbb\nccc\nddd";
+        this.Assert.AreEqual(E, sys.getRidOfStarComment(I));
+    }
+
     this.testIsNumeric = function (){
 
         this.Assert.IsTrue(sys.isNumeric(1));
         this.Assert.IsTrue(sys.isNumeric(1.1));
         this.Assert.IsTrue(sys.isNumeric("1"));
         this.Assert.IsTrue(sys.isNumeric("1.1"));
-        
+
         this.Assert.IsFalse(sys.isNumeric(true));
         this.Assert.IsFalse(sys.isNumeric(false));
         this.Assert.IsFalse(sys.isNumeric(null));
