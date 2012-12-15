@@ -22,6 +22,52 @@ if(isNodeJs()){
 ///////////////////////////////////////////////////////////////////////////////
 function Sys_UnitTests() {
 
+    this._instruments = [    /*http://www.freebase.com/view/en/koto*/
+        { "name": "Guitar", "category":"Strings", "image": "http://img.freebase.com/api/trans/raw/m/042392q"},
+        { "name": "Banjo", "category":"Strings", "image": "http://img.freebase.com/api/trans/raw/m/052w_6d"},
+        { "name": "Mandola", "category":"Strings", "image": "http://img.freebase.com/api/trans/raw/m/02f0bjz"},
+        { "name": "Bouzouki", "category":"Strings", "image": "http://img.freebase.com/api/trans/raw/m/029gy47"},
+        { "name": "Sitar", "category":"Strings", "image": "http://img.freebase.com/api/trans/raw/m/059yyyt"},
+        { "name": "Koto", "category":"Strings", "image": "http://img.freebase.com/api/trans/raw/m/02bg10g"},
+        { "name": "Pipa", "category":"Strings", "image": "http://img.freebase.com/api/trans/raw/m/02f1b99"},
+        { "name": "Bandurria", "category":"Strings", "image": "http://img.freebase.com/api/trans/raw/m/04pm0zr"},
+        { "name": "Bouzouki", "category":"Strings", "image": "http://img.freebase.com/api/trans/raw/m/029gy47"},
+    
+        { "name": "Piano", "category":"Percussion", "image":"http://img.freebase.com/api/trans/raw/m/03s9dxr" },
+        { "name": "Rhodes_piano", "category":"Percussion", "image": "http://img.freebase.com/api/trans/raw/m/02923_q"},
+        { "name": "Clavinet", "category":"Percussion", "image": "http://img.freebase.com/api/trans/raw/m/029s8y_"},
+        { "name": "Clavichord", "category":"Percussion", "image": "http://img.freebase.com/api/trans/raw/m/05cd2x_"},
+        { "name": "Santur", "category":"Percussion", "image": "http://img.freebase.com/api/trans/raw/m/02f61nd"},
+    
+        { "name": "Recorder", "category":"Wind", "image": "http://img.freebase.com/api/trans/raw/m/0291nst"},
+        { "name": "Tuba", "category":"Wind", "image": "http://img.freebase.com/api/trans/raw/m/052qvch"},
+        { "name": "Trombone", "category":"Wind", "image": "http://img.freebase.com/api/trans/raw/m/02bjmnh"},
+        { "name": "Cornet", "category":"Wind", "image": "http://img.freebase.com/api/trans/raw/m/02910xc"},
+        { "name": "Euphonium", "category":"Wind", "image": "http://img.freebase.com/api/trans/raw/m/03qx37q"}
+    ];
+    
+    this.testGroupBy = function() {
+
+        var aggregate = sys.groupBy(this._instruments, "category");
+        
+        this.Assert.IsTrue(Array.isArray(aggregate["Strings"]));
+        this.Assert.IsTrue(Array.isArray(aggregate["Wind"]));
+        this.Assert.IsTrue(Array.isArray(aggregate["Percussion"]));
+        
+        this.Assert.AreEqual(9, aggregate["Strings"].length);
+        this.Assert.AreEqual(5, aggregate["Wind"].length);
+        this.Assert.AreEqual(5, aggregate["Percussion"].length);
+
+        //print(JSON.stringify(aggregate));
+    }
+
+    this.testDistinct = function() {
+
+        var categories = sys.distinct(this._instruments, "category");
+        this.Assert.AreEqual(3, categories.length);
+        //print(JSON.stringify(categories));
+    }
+
     this.testGetRidOfStarComment = function () {
 
         var I, E;

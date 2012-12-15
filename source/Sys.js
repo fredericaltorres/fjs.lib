@@ -8,6 +8,33 @@ Freely distributable under the MIT license.
 sys = (function(){
     var
         _sys = {};
+   
+    _sys.distinct = function(arrayO, property) {
+        var l = [];
+
+        arrayO.forEach(function(e){
+            var v = e[property];
+            if(l.indexOf(v)===-1)
+                l.push(v);
+        });
+        return l;
+    }
+
+    _sys.groupBy = function(arrayO, property) {
+        var values  = sys.distinct(arrayO, property);
+        var l       = { };
+        
+        values.forEach(function(v){
+            l[v] = [];
+        });
+        arrayO.forEach(function(o){
+            var cat = o[property];
+            if(cat) {
+                l[cat].push(o);
+            }
+        });
+        return l;
+    }
         
     _sys.getRidOfStarComment = function(s) {
 
