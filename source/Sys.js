@@ -8,7 +8,17 @@ Freely distributable under the MIT license.
 sys = (function(){
     var
         _sys = {};
-   
+        
+    _sys.traversePath = function(obj, paths/*Array*/) {
+
+         var o = obj;
+         for(var i=0; i<paths.length; i++) {
+            //console.log("get path:"+paths[i]);
+            o = o[paths[i]];
+         }
+         return o;
+    }
+
     _sys.distinct = function(arrayO, property) {
         var l = [];
 

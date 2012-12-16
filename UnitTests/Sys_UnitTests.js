@@ -46,6 +46,18 @@ function Sys_UnitTests() {
         { "name": "Euphonium", "category":"Wind", "image": "http://img.freebase.com/api/trans/raw/m/03qx37q"}
     ];
     
+    this.testTraversePath = function() {
+      
+        var ol = {
+          p1 : [
+            { p2:"tutu", p3:[{ p4:"toto"}]}
+          ]
+        };
+        this.Assert.AreEqual("tutu", sys.traversePath(ol, ["p1", 0, "p2"]));
+        this.Assert.AreEqual("toto", sys.traversePath(ol, ["p1", 0, "p3", 0, "p4"]));
+        this.Assert.AreEqual("Guitar", sys.traversePath(this._instruments, [0, "name"]));
+        this.Assert.AreEqual("Strings", sys.traversePath(this._instruments, [1, "category"]));
+    }
     this.testGroupBy = function() {
 
         var aggregate = sys.groupBy(this._instruments, "category");
