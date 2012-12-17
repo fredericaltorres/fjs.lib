@@ -45,7 +45,11 @@ sys = (function(){
         });
         return l;
     }
-        
+    ///
+    /// Get rid of /* */ comment in text. But do not parse
+    /// the content of the string to verify that /* is really a comment
+    /// If we find a */ missing we just give up!    : <
+    ///
     _sys.getRidOfStarComment = function(s) {
 
         var s1, s2, p2, p1;
@@ -58,6 +62,9 @@ sys = (function(){
                     s1 = s.substring(0, p1);
                     s2 = s.substring(p2+2);
                     s = s1 + s2;
+                }
+                else {
+                    break; // Stop without signaling an error found some data that may contain /* in a string which is ok
                 }
             }
             else break;
