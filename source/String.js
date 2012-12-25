@@ -20,7 +20,8 @@ String.prototype.decapitalize = function(  ) {
     var finalResult = text.
                         replace(/([A-Z]+)/g, " $1").        // Insert a space before any upper case -> replace(/([A-Z]+)/g, " $1") => "In The USAAnd Else"
                         replace(/([A-Z][a-z])/g, " $1").    // Convert  "In The USAAnd Else" =>  "In The USA And Else"
-                        replace(/_/g, " ");                 // Support Id separated with '_'. A la Ruby
+                        replace(/_/g, " ").                 // Support Id separated with '_'. A la Ruby
+                        replace(/-/g, " ");                 // Support Id separated with '_'. A la Ruby
 
     while(finalResult.indexOf("  ")!==-1) 
         finalResult = finalResult.replace(/  /g, " ");
@@ -54,7 +55,7 @@ String.prototype.capitalize = function () {
     /// Capitalize the string, 
     /// by removing the space and changing the first letter of each word to an uppercase
     ///	</summary>
-    return this.replace(/(^|\s)([a-z])/g, function (m, p1, p2) { return p1 + p2.toUpperCase(); });
+    return this.charAt(0).toUpperCase() + this.slice(1).toLowerCase();
 };
 String.prototype.leftPad = function (padString, length) {
     ///	<summary>
