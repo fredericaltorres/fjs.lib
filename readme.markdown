@@ -9,7 +9,7 @@ My attempt to a re-usable JavaScript standard library inspired by the .NET libra
     - Extensions method for the class Array
     - The sys singleton, generic methods for every day programming
 
-TORRES Frederic 2011
+TORRES Frederic 2011, 2012, 2013
 
 Mit Style License
 
