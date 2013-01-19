@@ -1,5 +1,5 @@
 fjs.lib
-======
+=======
 My attempt to a re-usable JavaScript standard library inspired by the .NET library.
 
     - A class List inspired by the .NET List<T>
@@ -7,6 +7,7 @@ My attempt to a re-usable JavaScript standard library inspired by the .NET libra
     - A class Stack inspired by the .NET Stack<T>
     - Extensions method for the class String
     - Extensions method for the class Array
+    - The sys singleton, generic methods for every day programming
 
 TORRES Frederic 2011
 
@@ -73,7 +74,6 @@ Mit Style License
       startsWith()
       trim()
 
-
   ***Stack***
 ===============
 
@@ -91,22 +91,42 @@ Mit Style License
 ===============
 
     Methods
-      getType()
-      Inherit()
       defaultValue()
+      distinct()
+      dumpObject()
+      extend()
+      extendMethods()
+      extendProperties()
+      getMethods()
+      getObjects()
+      getRidOfStarComment()
+      getType()
+      groupBy()
       hasMethod()
       hasValue()
       ifNullOrUndefined()
       ifUndefined()
+      Inherit()
+      isArray()
+      isBoolean()
       isBrowser()
+      isDate()
       isDefined()
       isFunction()
+      isFunction()
+      isInteger()
       isMethod()
       isNodeJs()
       isNull()
       isNullOrUndefined()
+      isNumber()
+      isNumeric()
+      isObject()
+      isString()
       isString()
       isTypeDate()
       isUndefined()
+      removeMethods()
+      traversePath()
 
 
