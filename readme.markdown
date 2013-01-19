@@ -55,6 +55,7 @@ Mit Style License
       remove()
       removeAll()
       removeAt()
+      replaceAll()
       reverse()
       toString()
 
@@ -65,6 +66,7 @@ Mit Style License
     Methods
       capitalize()
       contains()
+      decapitalize()
       endsWith()
       format()
       leftPad()
