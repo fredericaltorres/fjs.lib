@@ -75,10 +75,10 @@ function List_UnitTests() {
     this.testConcat = function (){
 
         var l1 = new List(1, 2, 3);
-        var l2 = new List(4, 5, 6);
+        var l2 = new List(4, 5, 6, 7);
         l1.concat(l2);
         print(l1.toString());
-        this.Assert.AreEqual("1,2,3,4,5,6", l1.toString());
+        this.Assert.AreEqual("1,2,3,4,5,6,7", l1.toString());
     }
     this.testInstanceOf = function (){
 
@@ -133,13 +133,12 @@ function List_UnitTests() {
         this.Assert.AreEqual("a", l.contains(["aa","aaa","a"]));
         this.Assert.AreEqual("d", l.contains(["aa","d","aaa","a"]))
         this.Assert.IsTrue(l.contains([undefined, null, 1, /aa/, new Date(), "aaa","a"]));
-        this.Assert.IsFalse(l.contains([undefined, null, 1, /aa/, new Date(), "aaa"]));
-        
-        this.Assert.IsTrue(l.contains(new List("aa","aaa","a")));
+        this.Assert.IsFalse(l.contains([undefined, null, 1, /aa/, new Date(), "aaa"]));        
+        this.Assert.IsFalse(l.contains(new List("aa","aaa","a")));
 
         var l = new List({a:1}, {a:2}, {a:3});
-        this.Assert.IsFalse(l.contains({a:1}));
-        this.Assert.IsFalse(l.contains({a:1}, function(e){ return e.a === 1; }));
+        //this.Assert.IsFalse(l.contains({a:1}));
+        //this.Assert.IsFalse(l.contains({a:1}, function(e){ return e.a === 1; }));
 
     }
     this.testExists = function (){

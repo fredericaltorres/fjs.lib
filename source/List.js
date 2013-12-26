@@ -132,10 +132,10 @@ List = (function(){
             return this.indexOf(val) !== -1;
         }
     }
-   _list.prototype.concat = function (l) {
+   _list.prototype.concat = function (l) { 
         var
             i;
-        for(i in this)
+        for(i in l)
             if(__isInt(i))
                 this.add(l[i]);
     }
