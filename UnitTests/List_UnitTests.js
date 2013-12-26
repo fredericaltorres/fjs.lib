@@ -137,8 +137,8 @@ function List_UnitTests() {
         this.Assert.IsFalse(l.contains(new List("aa","aaa","a")));
 
         var l = new List({a:1}, {a:2}, {a:3});
-        //this.Assert.IsFalse(l.contains({a:1}));
-        //this.Assert.IsFalse(l.contains({a:1}, function(e){ return e.a === 1; }));
+        this.Assert.IsFalse(l.contains({a:1}));
+        this.Assert.IsFalse(l.contains({a:1}, function(e){ return e.a === 1; }));
 
     }
     this.testExists = function (){
