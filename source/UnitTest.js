@@ -71,6 +71,8 @@ UnitTests = (function(){
             if(this[t].ExpectException===true){
                 //this.print("ExpectException on {0}".format(t));
                 // we got an expected exception
+                this.print("ExpectedException was caught passed");
+                this._result[t] = this.Status.Passed;
             }
             else{
                 //this.print("ExpectException off {0}".format(t));
