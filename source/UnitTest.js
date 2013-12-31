@@ -84,13 +84,23 @@ UnitTests = (function(){
     }    // Static Sub class Assert
     UnitTests.UnitTestsBaseClass.prototype.Assert = {
 
-        __ArrayEqual : function(a1, a2){
+        __ArrayEqual: function(a1, a2) {
 
-            if(a1.length!=a2.length)  return false;
+            if (a1.length != a2.length) return false;
 
-            for(var i=0; i<a1.length; i++)
-                if(a1[i]!==a2[i])
+            for (var i = 0; i < a1.length; i++) {
+
+                if (Array.isArray(a1[i]) && Array.isArray(a2[i])) {
+
+                    if (!this.__ArrayEqual(a1[i], a2[i])) {
+                        return false;
+                    }
+                }
+                else if (a1[i] !== a2[i]) {
+
                     return false;
+                }
+            }
             return true;
         },
         AreEqual: function(expected, actual, message, throwException){
