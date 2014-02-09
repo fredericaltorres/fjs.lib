@@ -82,6 +82,18 @@ function DateExtension_UnitTests() {
         print(d1.formatIso());
     }
 
+    this.testFormat = function (){
+        var
+            d1 = new Date(2011, 10-1, 11, 20, 13, 5, 123);
+
+        print(d1.format(Date.YYYYMMDD_HHMMSS));
+        this.Assert.AreEqual("10/11/2011", d1.format());        
+        this.Assert.AreEqual("10/11/2011", d1.format(Date.MMDDYYYY));        
+        this.Assert.AreEqual("2011/10/11", d1.format(Date.YYYYMMDD));
+        this.Assert.AreEqual("2011/10/11 20:10:05", d1.format(Date.YYYYMMDD_HHMMSS));
+        this.Assert.AreEqual("10/11/2011 20:10:05", d1.format(Date.MMDDYYYY_HHMMSS));
+        this.Assert.AreEqual("2011-10-12T00:13:05.123Z", d1.format(Date.ISO));
+    }
 }
 DateExtension_UnitTests.prototype = new UnitTests.UnitTestsBaseClass();
 
