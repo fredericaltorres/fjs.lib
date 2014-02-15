@@ -141,6 +141,7 @@ sys = (function(){
     _sys.isDate     = function(v) { return this.getType(v) === "Date";      }
     _sys.isArray    = function(v) { return this.getType(v) === "Array";     }
     _sys.isObject   = function(v) { return this.getType(v) === "Object";    }
+    _sys.isRegExp   = function(v) { return this.getType(v) === "RegExp";    }
 
     _sys.isInteger  = function(x) {
 
