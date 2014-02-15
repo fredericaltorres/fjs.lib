@@ -1,5 +1,5 @@
 /*
-    Sys unit tests
+    Date extensions unit tests
     (c) 2011 TORRES Frederic
     freely distributable under the MIT license.
 */
